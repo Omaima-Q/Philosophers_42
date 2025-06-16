@@ -12,57 +12,62 @@
 
 
 # Program name
-NAME				=	philo
+NAME = philo
 
 # Compiler and CFlags
-CC					=	gcc
-CFLAGS				=	-Wall -Werror -Wextra -g
-RM					=	rm -f
+CC      = gcc
+CFLAGS	= -Wall -Werror -Wextra -g
+RM      = rm -f
 
 # Directories
-INC					=	inc/
-SRC_DIR				=	src/
-OBJ_DIR				=	obj/
+INC     = inc/
+SRC_DIR	= src/
+OBJ_DIR	= obj/
 
 # Source Files
-SRC					=	init_input.c \
-						threads_handler.c \
-						philo_monitor.c \
-						parse.c \
-						philo.c \
-						status_print.c \
-						protection.c \
-						start_simu.c \
-						utils.c
+SRC	= init_input.c \
+	  threads_handler.c \
+	  philo_monitor.c \
+	  parse.c \
+	  philo.c \
+	  status_print.c \
+	  protection.c \
+	  start_simu.c \
+	  utils.c
 
-SRCS				=	$(addprefix $(SRC_DIR), $(SRC))
+SRCS	= $(addprefix $(SRC_DIR), $(SRC))
 
-# Object files
-OBJ 				= 	$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRCS))
+# Object files, This adds the src/ directory path to each filename listed in SRC, 
+# effectively constructing the full path to each source file. This is useful for 
+# organizing projects and ensuring the correct paths are used during the build process.
 
-# Build rules
+OBJ 	= $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRCS))
 
-all: 					$(NAME)
+# Build rules, transforms each .c file path into a corresponding .o file path in the
+# obj/ directory. This ensures the objects are stored where they should be, 
+# following a structured build process.
 
-$(NAME): 				$(OBJ)
-						@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+all: 	$(NAME)
+
+$(NAME): $(OBJ)
+	 @$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 # Compile object files from source files
-$(OBJ_DIR)%.o:			$(SRC_DIR)%.c 
-						@mkdir -p $(@D)
-						@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.c 
+		@mkdir -p $(@D)
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-						@$(RM) -r $(OBJ_DIR)
+		@$(RM) -r $(OBJ_DIR)
 
-fclean: 				clean
-						@$(RM) $(NAME)
-						@$(RM) src/a.out
+fclean: 	clean
+		@$(RM) $(NAME)
+		@$(RM) src/a.out
 
-re: 					fclean all
+re: 		fclean all
 
 # Phony targets represent actions not files
-.PHONY: 				all clean fclean re leaks valgrind_leaks help
+.PHONY: 	all clean fclean re leaks valgrind_leaks help
 
 # # Checks for memory leaks
 # leaks: re
