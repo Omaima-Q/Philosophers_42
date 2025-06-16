@@ -19,8 +19,11 @@ int	main(int argc, char **argv)
 	if (argc == 5 || argc == 6)
 	{
 		data.error_flag = 0;
+		// Initializes an error flag within the data structure to 0, indicating no error initially.
 		parse_input(&data, argv);
 		if (!data.error_flag)
+		// Checks whether an error was detected during input parsing (error_flag remains 0).
+		// If no error, proceeds to initialize and run the simulation.
 		{
 			data_init(&data);
 			sim_start(&data);
