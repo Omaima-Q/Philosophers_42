@@ -18,10 +18,15 @@ static bool	whitespace(char c)
 	return (c == '+' || (c >= 9 && c <= 13) || 32 == c);
 }
 
+// we use bool here to enforces the return value to be either true or false, 
+// reducing possible bugs compared to returning an integer with ambiguous meaning.
+
 static bool	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
+
+// Using static allows the variable to keep its value between function calls.
 
 static long	ft_atol(const char *s)
 {
