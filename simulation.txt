@@ -1,4 +1,4 @@
-#Initial setup:
+# Initial setup:
 
 Table with 5 philosophers (P1 to P5)
 
