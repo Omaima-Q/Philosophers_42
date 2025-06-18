@@ -2,6 +2,7 @@
 
 Table with 5 philosophers (P1 to P5)
 
+
       P1
    (F5)   (F1)
    |       |
