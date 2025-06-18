@@ -2,14 +2,14 @@
 
 Table with 5 philosophers (P1 to P5)
 
-     P1       P2
-    (F1)     (F2)
-     |       |
-    (F5)     (F3)
-     |       |
-     P5     P3
-       \   /
-        P4
+      P1
+   (F5)   (F1)
+   |       |
+   P5     P2
+    |     |
+   (F4)   (F2)
+    |     |
+    P4--(F3)--P3
 
 #### Forks:
 F1 between P1 and P2
