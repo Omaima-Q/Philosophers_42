@@ -20,6 +20,8 @@ int	main(int argc, char **argv)
 	{
 		data.error_flag = 0;
 		// Initializes an error flag within the data structure to 0, indicating no error initially.
+		// error_flag is a flag variable used to indicate whether an error has occurred during the 
+		// processing of input or execution.
 		parse_input(&data, argv);
 		if (!data.error_flag)
 		// Checks whether an error was detected during input parsing (error_flag remains 0).
