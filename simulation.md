@@ -9,7 +9,7 @@ Table with 5 philosophers (P1 to P5)
      |       |
      P5     P3
        \   /
-        P4
+        P4 (F4)
 
 #### Forks:
 F1 between P1 and P2
