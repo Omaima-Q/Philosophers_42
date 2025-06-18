@@ -69,12 +69,17 @@ void	data_init(t_data *data)
 
 	i = 0;
 	data->end_time = false;
+	// false is a boolean value that indicates a negative or "not yet" state.
 	data->threads_ready = false;
 	data->active_philos_count = 0;
 	data->philos_arr = ft_malloc(data->ph_total * sizeof(t_ph));
 	data->forks_arr = ft_malloc(data->ph_total * sizeof(t_fork));
 	handle_mutex(&data->write_mutex, INIT);
+	// Synchronize console output to avoid jumbled text
+	// When printing status messages (e.g., eating, thinking)
 	handle_mutex(&data->access_mutex, INIT);
+	// protect and Synchronize shared data updates to prevent races
+	// When updating counters, flags, or shared states during thread activity
 	while (i < data->ph_total)
 	{
 		handle_mutex(&data->forks_arr[i].fork_mutex, INIT);
