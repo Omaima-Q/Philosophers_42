@@ -78,6 +78,17 @@ static void	*dining_philos(void *ph_data)
 	return (NULL);
 }
 
+// 1. Wait for all threads to start.
+// 2. Record current time (first meal time).
+// 3. Increment active philosopher count.
+// 4. Synchronize start with others.
+// 5. Loop:
+//   - Check if simulation ended.
+//   - Check if philosopher ate enough.
+//   - Eat (lock forks, update last meal).
+//   - Sleep.
+//   - Think.
+
 void	sim_start(t_data *data)
 {
 	int	i;
