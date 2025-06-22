@@ -6,4 +6,4 @@ They share with other threads their code section, data section and OS resources 
 But, like processes, a thread has its own program counter (PC), a register set, and a stack space.
 
 ![Multithreading process]
-(https://media.geeksforgeeks.org/wp-content/uploads/20230824111450/multithreading-python-21.png)
+<https://media.geeksforgeeks.org/wp-content/uploads/20230824111450/multithreading-python-21.png)>
